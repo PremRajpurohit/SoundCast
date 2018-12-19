@@ -4,23 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PlayerActivity"
-    android:theme="@style/MusicPlayerTheme">
+    android:theme="@style/MusicPlayerTheme"
+    tools:context=".PlayerActivity">
 
     <ImageView
-        android:id="@+id/libraryImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="74dp"
-        android:layout_marginEnd="128dp"
-        android:layout_marginBottom="195dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/playPause"
+        android:id="@+id/musicThumbnail"
+        android:layout_width="300dp"
+        android:layout_height="304dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="0.077" />
+
+    <TextView
+        android:id="@+id/musicTitle"
+        android:layout_width="0dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Title"
+        android:elevation="30dp"
+        android:backgroundTintMode="src_in"
+        android:backgroundTint="#757575"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="#201e1e"
+        app:layout_constraintBottom_toTopOf="@+id/playPause"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.838" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="95dp"
+        android:layout_height="93dp"
+        android:indeterminate="true"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.952" />
 
     <CheckBox
         android:id="@+id/playPause"
@@ -31,7 +62,8 @@
         android:layout_marginEnd="137dp"
         android:layout_marginBottom="79dp"
         android:button="@drawable/custom_play_button"
-        android:checked="false"
+        android:checked="true"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,4 +98,5 @@
         app:layout_constraintStart_toEndOf="@+id/playPause"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_skip_next_black_24dp" />
+
 </android.support.constraint.ConstraintLayout>
