@@ -62,7 +62,7 @@ public class HomeActivity extends AppCompatActivity implements MusicLibraryAdapt
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.addMusic:
-                //TODO: When Add Music Pressed
+                startActivity(new Intent(this,UploadMusic.class));
                 Toast.makeText(this,"Add Music Pressed",Toast.LENGTH_SHORT).show();
                 break;
         }
