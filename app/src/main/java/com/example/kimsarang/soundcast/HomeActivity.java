@@ -10,7 +10,11 @@ import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -26,6 +30,7 @@ public class HomeActivity extends AppCompatActivity implements MusicLibraryAdapt
     LinearLayoutManager layoutManager;
     MusicLibraryAdapter musicLibraryAdapter;
     View bottomSheetLayout;
+    Toolbar toolBar;
     BottomSheetBehavior bottomSheetBehavior;
 
     static ArrayList<Music> musicList;
@@ -35,7 +40,8 @@ public class HomeActivity extends AppCompatActivity implements MusicLibraryAdapt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        toolBar = findViewById(R.id.toolBar);
+        setSupportActionBar(toolBar);
         musicLibrary = findViewById(R.id.musicLibrary);
 
         bottomSheetLayout = findViewById(R.id.bottom_sheet);
@@ -44,6 +50,23 @@ public class HomeActivity extends AppCompatActivity implements MusicLibraryAdapt
         setupRecyclerView();
         populateData();
         setupBottomSheet();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_item,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.addMusic:
+                //TODO: When Add Music Pressed
+                Toast.makeText(this,"Add Music Pressed",Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void setupRecyclerView() {
